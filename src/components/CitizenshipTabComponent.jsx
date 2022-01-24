@@ -429,6 +429,86 @@ const CitizenshipTabComponent = () => {
         }
       ],
       type: "dropdown"
+    },
+    {
+      id: "q9",
+      question: "Are you coming to Canada for diplomatic or business reasons?",
+      description: "We need to know if you are coming to Canada for diplomatic or business reasons to determine if you are allowed to enter Canada",
+      options: [
+        {
+          value: "Yes",
+          points: 10
+        },
+        {
+          value: "No",
+          points: 5
+        }
+      ],
+      type: "dropdown"
+    },
+    {
+      id: "q10",
+      question: "Have you ever been arrested and incarcerated in another country?",
+      description: "We need to know if you have ever been arrested and incarcerated in another country to determine if you are allowed to enter Canada",
+      options: [
+        {
+          value: "Yes",
+          points: -6
+        },
+        {
+          value: "No",
+          points: 20
+        }
+      ],
+      type: "dropdown"
+    },
+    {
+      id: "q11",
+      question: "Are you coming to Canada for medical reasons?",
+      description: "We need to know if you are coming to Canada for medical reasons to determine if you are allowed to enter Canada. Medical reasons include: medical treatment, medical emergencies, or medical repatriation.",
+      options: [
+        {
+          value: "Yes",
+          points: 10
+        },
+        {
+          value: "No",
+          points: 0
+        }
+      ],
+      type: "dropdown"
+    },
+    {
+      id: "q12",
+      question: "Are you coming to Canada for humanitarian reasons?",
+      description: "We need to know if you are coming to Canada for humanitarian reasons to determine if you are allowed to enter Canada. Humanitarian reasons include: humanitarian aid, humanitarian relief, or humanitarian repatriation.",
+      options: [
+        {
+          value: "Yes",
+          points: 10
+        },
+        {
+          value: "No",
+          points: 0
+        }
+      ],
+      type: "dropdown"
+    },
+    {
+      id: "q13",
+      question: "Have you ever been extradited from another country?",
+      description: "We need to know if you have ever been extradited from another country to determine if you are allowed to enter Canada",
+      options: [
+        {
+          value: "Yes",
+          points: -10
+        },
+        {
+          value: "No",
+          points: 2
+        }
+      ],
+      type: "dropdown"
     }
   ]);
 
@@ -458,12 +538,12 @@ const CitizenshipTabComponent = () => {
               {isEligible() ? (
                 <Alert
                   intent="success"
-                  title="You are eligible for citizenship!"
+                  title="You will likely be allowed entry to Canada."
                 >Although this survey determined you're eligible, it is all up to the border inspector that processes your documentation.</Alert>
               ) : (
                 <Alert
                   intent="danger"
-                  title="You are not eligible for citizenship!"
+                  title="You will likely be denied entry to Canada."
                 >Although this survey determined you're not eligible, it is all up to the border inspector that processes your documentation.</Alert>
               )}
             </>
@@ -489,7 +569,7 @@ const CitizenshipTabComponent = () => {
                   {q.type === "dropdown" ? (
                     <Combobox
                       autocompleteProps={{
-                        title: "Country",
+                        title: "Choose an option",
                       }}
                       items={q.options.map((option) => option.value)}
                       placeholder="Select an option"
