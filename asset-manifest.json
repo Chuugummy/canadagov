@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/canadagov/static/css/main.e66c811f.css",
+    "main.js": "/canadagov/static/js/main.217f2f44.js",
+    "index.html": "/canadagov/index.html",
+    "main.e66c811f.css.map": "/canadagov/static/css/main.e66c811f.css.map",
+    "main.217f2f44.js.map": "/canadagov/static/js/main.217f2f44.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.e66c811f.css",
+    "static/js/main.217f2f44.js"
+  ]
+}
