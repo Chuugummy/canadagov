@@ -445,7 +445,7 @@ const CitizenshipTabComponent = () => {
       return acc + question.options.find(option => option.value === answer).points;
     }, 0);
 
-    return points >= 70;
+    return points >= 53;
   }
 
   return (
@@ -456,9 +456,15 @@ const CitizenshipTabComponent = () => {
             <>
               <p>Based on your results...</p>
               {isEligible() ? (
-                <p>You are eligible for citizenship in Canada!</p>
+                <Alert
+                  intent="success"
+                  title="You are eligible for citizenship!"
+                >Although this survey determined you're eligible, it is all up to the border inspector that processes your documentation.</Alert>
               ) : (
-                <p>You are not eligible for citizenship in Canada.</p>
+                <Alert
+                  intent="danger"
+                  title="You are not eligible for citizenship!"
+                >Although this survey determined you're not eligible, it is all up to the border inspector that processes your documentation.</Alert>
               )}
             </>
           ) : (

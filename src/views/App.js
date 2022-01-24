@@ -9,6 +9,7 @@ import { Pane, Tablist, Tab } from 'evergreen-ui';
 import HomeTabComponent from '../components/HomeTabComponent';
 import ResourcesTabComponent from '../components/ResourcesTabComponent';
 import CitizenshipTabComponent from '../components/CitizenshipTabComponent';
+import GovernmentJobTabComponent from '../components/GovernmentJobTabComponent';
 
 function App() {
   const Navigation = () => {
@@ -26,9 +27,9 @@ function App() {
               display: "flex",
               alignItems: "center"
             }}>
-              <img src="canada-leaf.png" alt="Canada Leaf" width="20px" height="20px" style={{
+              <img alt="Canada Leaf" width="20px" height="20px" style={{
                 marginRight: "10px"
-              }} />
+              }} src={process.env.PUBLIC_URL + "/canada-leaf.png"} />
               <h5 style={{ margin: "0px" }}>Canada.gov</h5>
             </div>
 
@@ -66,6 +67,7 @@ function App() {
     { name: "Home", component: <HomeTabComponent /> },
     { name: "Resources", component: <ResourcesTabComponent /> },
     { name: "Citizenship", component: <CitizenshipTabComponent /> },
+    { name: "Government Jobs", component: <GovernmentJobTabComponent />},
   ]);
 
   return (
