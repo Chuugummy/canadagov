@@ -1,13 +1,13 @@
 {
   "files": {
     "main.css": "/canadagov/static/css/main.e66c811f.css",
-    "main.js": "/canadagov/static/js/main.1544e0df.js",
+    "main.js": "/canadagov/static/js/main.719e3e0b.js",
     "index.html": "/canadagov/index.html",
     "main.e66c811f.css.map": "/canadagov/static/css/main.e66c811f.css.map",
-    "main.1544e0df.js.map": "/canadagov/static/js/main.1544e0df.js.map"
+    "main.719e3e0b.js.map": "/canadagov/static/js/main.719e3e0b.js.map"
   },
   "entrypoints": [
     "static/css/main.e66c811f.css",
-    "static/js/main.1544e0df.js"
+    "static/js/main.719e3e0b.js"
   ]
 }
