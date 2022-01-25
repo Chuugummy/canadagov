@@ -1,8 +1,9 @@
 import {
   Pane,
   Tablist,
-  Tab,
-  SidebarTab
+  SidebarTab,
+  Table,
+  Badge
 } from "evergreen-ui";
 
 import { useState } from "react";
@@ -41,6 +42,133 @@ const LawbookTabComponent = () => {
       </Pane>
     );
   }
+
+  const getSeverityBadge = (severity) => {
+    severity = severity.toLowerCase();
+    switch (severity) {
+      case "low":
+        return <Badge color="yellow">Low</Badge>;
+      case "medium":
+        return <Badge color="orange">Medium</Badge>;
+      case "high":
+        return <Badge color="red">High</Badge>;
+      default:
+        return <Badge color="red">Extreme</Badge>;
+    }
+  }
+
+  const crimes = [
+    {
+      name: "Burglary",
+      severity: "Medium",
+      usualPunishment: "Imprisonment",
+    },
+    {
+      name: "Theft",
+      severity: "Medium",
+      usualPunishment: "Imprisonment",
+    },
+    {
+      name: "Assault",
+      severity: "High",
+      usualPunishment: "Fine",
+    },
+    {
+      name: "Battery",
+      severity: "High",
+      usualPunishment: "Imprisonment",
+    },
+    {
+      name: "Malicious Destruction",
+      severity: "Medium",
+      usualPunishment: "Fine",
+    },
+    {
+      name: "Manslaughter",
+      severity: "Extreme",
+      usualPunishment: "Imprisonment or Capital Punishment",
+    },
+    {
+      name: "Murder 1st Degree",
+      severity: "Extreme",
+      usualPunishment: "Imprisonment or Capital Punishment",
+    },
+    {
+      name: "Murder 2nd Degree",
+      severity: "High",
+      usualPunishment: "Imprisonment",
+    },
+    {
+      name: "Murder 3rd Degree",
+      severity: "High",
+      usualPunishment: "Imprisonment",
+    },
+    {
+      name: "Possession of Poisonous Substances",
+      severity: "Medium",
+      usualPunishment: "Fine",
+    },
+    {
+      name: "Robbery",
+      severity: "High",
+      usualPunishment: "Fine",
+    },
+    {
+      name: "Extortion",
+      severity: "High",
+      usualPunishment: "Fine",
+    },
+    {
+      name: "Terrorism",
+      severity: "Extreme",
+      usualPunishment: "Capital Punishment",
+    },
+    {
+      name: "Malice",
+      severity: "Low",
+      usualPunishment: "Fine",
+    },
+    {
+      name: "Misuse of Firearm",
+      severity: "High",
+      usualPunishment: "Seizure of Firearm License, Imprisonment, or Fine",
+    },
+    {
+      name: "Misuse of Drug",
+      severity: "High",
+      usualPunishment: "Imprisonment or Fine",
+    },
+    {
+      name: "Illegal Border Crossing",
+      severity: "Medium",
+      usualPunishment: "Arrest and Extradition or High Prison",
+    },
+    {
+      name: "Border Crossing with Intent to Commit Crime",
+      severity: "High",
+      usualPunishment: "Arrest and Extradition or High Prison",
+    },
+    {
+      name: "Possession of Explosive Device",
+      severity: "Extreme",
+      usualPunishment: "Capital Punishment",
+    },
+    {
+      name: "Importation of Illegal Goods",
+      severity: "Extreme",
+      usualPunishment: "Imprisonment and Extradition or High Prison",
+    },
+    {
+      name: "Fleeing the State",
+      severity: "Extreme",
+      usualPunishment: "Imprisonment or Capital Punishment upon extradition",
+    },
+    {
+      name: "Possession of Stolen Property",
+      severity: "High",
+      usualPunishment: "Fine",
+    },
+  ];
 
   const [lawsSelectedIndex, setLawsSelectedIndex] = useState(0);
   const [lawsTabs] = useState([
@@ -173,6 +301,94 @@ const LawbookTabComponent = () => {
           <br />
           <br />
         </p>
+      </>
+    ) },
+    { name: "Section 4 - Internet Privacy", content: (
+      <>
+        <h3>Internet Privacy</h3>
+
+        <p>
+          Canada believes that privacy on the Internet is a human right. Therefore, knowingly collecting personal information from users of the Internet is illegal.
+          To gain consent to collect personal information from users of the Internet, use cookie prompts and describe the purpose of the information being collected.
+
+          <br />
+          <br />
+
+          Collecting this data from users is illegal and can be punishable by seizure of domains, servers, and/or imprisonment:
+
+          <ul>
+            <li>
+              <strong>Address</strong> - the physical address of the user. (this does not include collecting postal addresses or confirming a users identity.)
+            </li>
+            <li>
+              <strong>Voting Record</strong> - the voting record of the user.
+            </li>
+            <li>
+              <strong>UUIX ID</strong> - the unique user identification number of the user.
+            </li>
+            <li>
+              <strong>Social Security Number</strong> - the social security number of the user. (this does include verifying a users identity.)
+            </li>
+          </ul>
+
+          This is not a comphrensive list. You can call the Canadian Ministry of Privacy and Safety to learn more about the laws regarding the collection of personal
+          information.
+        </p>
+      </>
+    ) },
+    { name: "Section 5 - Government Reform", content: (
+      <>
+        <h3>Government Reform</h3>
+
+        <p>
+          Canada believes that government reform is a human right. Therefore, it is legal to pressure the government to change its policies if it is not in line with
+          the people.
+
+          <br />
+          <br />
+
+          The following are examples of government reform:
+
+          <ul>
+            <li>
+              <strong>Taxes</strong> - reform can be done to the taxes.
+            </li>
+            <li>
+              <strong>Diplomatic Relations</strong> - reform can influence Canadian foreign relations.
+            </li>
+            <li>
+              <strong>Military</strong> - reform can be done to the military.
+            </li>
+          </ul>
+
+          This is not a comphrensive list. You can call the Canadian Ministry of Community Relations to learn more about the laws regarding government reform.
+        </p>
+      </>
+    ) },
+    { name: "Section 6 - Crimes", content: (
+      <>
+        <h3>Crimes</h3>
+
+        <p>
+          The table below lists all crimes in Canada. The table is not exhaustive and may not be a complete list of crimes.
+        </p>
+
+        <Table>
+          <Table.Head>
+            <Table.TextHeaderCell>Crime</Table.TextHeaderCell>
+            <Table.TextHeaderCell>Severity</Table.TextHeaderCell>
+            <Table.TextHeaderCell>Usual Punishment</Table.TextHeaderCell>
+          </Table.Head>
+          <Table.Body height={360}>
+            {crimes.map((crime) => (
+              <Table.Row key={Math.floor() * Math.random()}>
+                <Table.TextCell>{crime.name}</Table.TextCell>
+                <Table.TextCell>{getSeverityBadge(crime.severity)}</Table.TextCell>
+                <Table.TextCell>{crime.usualPunishment}</Table.TextCell>
+              </Table.Row>
+            ))}
+          </Table.Body>
+        </Table>
       </>
     ) },
   ]);
