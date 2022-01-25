@@ -10,6 +10,7 @@ import HomeTabComponent from '../components/HomeTabComponent';
 import ResourcesTabComponent from '../components/ResourcesTabComponent';
 import CitizenshipTabComponent from '../components/CitizenshipTabComponent';
 import GovernmentJobTabComponent from '../components/GovernmentJobTabComponent';
+import LawbookTabComponent from '../components/LawbookTabComponent';
 
 function App() {
   const Navigation = () => {
@@ -68,6 +69,7 @@ function App() {
     { name: "Resources", component: <ResourcesTabComponent /> },
     { name: "Citizenship", component: <CitizenshipTabComponent /> },
     { name: "Government Jobs", component: <GovernmentJobTabComponent />},
+    { name: "Lawbook", component: <LawbookTabComponent />},
   ]);
 
   return (
